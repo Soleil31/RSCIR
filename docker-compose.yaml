@@ -34,6 +34,31 @@ services:
       PMA_HOST: mysql
       PMA_USER: root
       PMA_PASSWORD: rootroot
+      
+  drawer:
+    image: php:7.2-apache
+    ports:
+      - 8001:80
+    volumes:
+      - ./drawer:/var/www/html
+    container_name: Drawer
+
+  sort:
+    image: php:7.2-apache
+    ports:
+      - 8002:80
+    volumes:
+      - ./sort:/var/www/html
+    container_name: Sorter
+
+  adminer:
+    image: php:7.2-apache
+    ports:
+      - 8003:80
+    volumes:
+      - ./adminer:/var/www/html
+    container_name: Adminer
+
 
 volumes:
   save:
